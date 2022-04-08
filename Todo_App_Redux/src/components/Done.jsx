@@ -4,7 +4,7 @@ import {Typography, Card, CardContent, CardActionArea} from '@mui/material'
 import {useSelector, useDispatch, connect} from 'react-redux';
 import {deleteDone} from '../redux/actions'
 
-function DoneContainer(todos, done) {
+function DoneContainer(done) {
 
     const dispatch = useDispatch();
 
@@ -39,6 +39,6 @@ function DoneContainer(todos, done) {
     );
 }
 
-const mapStateToProps = (state) => {return {todos: state.todoState.todos, done: state.todoState.done}};
+const mapStateToProps = (state) => {return {done: state.todoState.done}};
 
 export default connect(mapStateToProps, {deleteDone})(DoneContainer);
