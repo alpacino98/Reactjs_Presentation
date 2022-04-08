@@ -23,46 +23,49 @@ export default function (state = initialState, action) {
 
         case DELETE_TODO:
             {
-                const {index_hold} = action.payload;
+                const {id} = action.payload;
+                console.log(id)
                 return {
                     ...state,
-                    todos: state.todos.filter((item, index) => index !== index_hold)
+                    todos: state.todos.filter((item, index) => index !== id)
                 }
             };
 
         case FINISH_TODO:
             {
-                const {index} = action.payload;
-                let element_holder = state.todos[index]
+                const {id} = action.payload;
+                let element_holder = state.todos[id]
 
                 return {
                     todos: [
                         ...state
                             .todos
-                            .slice(0, index),
+                            .slice(0, id),
                         ...state
                             .todos
-                            .slice(index + 1)
+                            .slice(id + 1)
                     ],
                     done: [
-                        ...state.done,
-                        element_holder
+                        ...state.done,{
+                            title: element_holder.title,
+                            Description: element_holder.Description
+                        }
                     ]
                 }
             };
 
         case DELETE_DONE:
             {
-                const {index} = action.payload;
+                const {id} = action.payload;
                 return {
                     ...state,
                     done: [
                         ...state
                             .done
-                            .slice(0, index),
+                            .slice(0, id),
                         ...state
                             .done
-                            .slice(index + 1)
+                            .slice(id + 1)
                     ]
                 }
             };

@@ -8,12 +8,13 @@ function DoneContainer(todos, done) {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {})
 
     function onDelete(e, index) {
         e.preventDefault();
         dispatch(deleteDone(index))
     }
+
+    console.log(done)
 
     return (
         <div>
