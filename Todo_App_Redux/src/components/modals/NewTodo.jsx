@@ -15,7 +15,6 @@ function NewTodo(props) {
 
     const handleCreate = (e) => {
         e.preventDefault();
-        console.log('Here')
         const content = {'title': title, 'Description': description}
         dispatch(addTodo(content))
         handleClose(e)

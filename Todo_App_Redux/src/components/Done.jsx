@@ -41,4 +41,4 @@ function DoneContainer(done) {
 
 const mapStateToProps = (state) => {return {done: state.todoState.done}};
 
-export default connect(mapStateToProps, {deleteDone})(DoneContainer);
+export default connect(mapStateToProps)(DoneContainer);

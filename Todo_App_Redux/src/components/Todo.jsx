@@ -18,8 +18,6 @@ function TodoContainer(todos, done) {
         dispatch(finishTodo(index))
     }
 
-    console.log(todos);
-
     return (
         <div>
             <Typography variant="h5" component="div">
@@ -43,6 +41,6 @@ function TodoContainer(todos, done) {
     );
 }
 
-const mapStateToProps = (state) => ({todos: state.todoState.todos, done: state.todoState.done});
+const mapStateToProps = (state) => ({todos: state.todoState.todos});
 
 export default connect(mapStateToProps)(TodoContainer);
